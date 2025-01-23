@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Void Unlocked</title>
+    </head>
+    <body>
+        <h1 style="text-align: center; color: purple;">Void Unlocked</h1>
+        <button id="btn">Request Website</button>
+        <select id="websites">
+            <option hidden disabled selected>Select a Website...</option>
+        </select>
+        <button id="visit">Visit Page</button>
+        <script>
+            var btn = document.getElementById("btn")
+            var blockedurl = document.getElementById("blockedurl")
+            var visit = document.getElementById("visit")
+            var websites = document.getElementById("websites")
+            
+            pages = [
+                "Hooda Math"
+            ]
+            pages.forEach(string => {
+                let newOption = new Option(string, string.toLowerCase().replace(" ", ""))
+                websites.add(newOption)
+            })
+            
+            btn.addEventListener("click", function() {
+                window.open(`https://forms.gle/9q7nehNeWVsnFFg18`)
+            })
+            visit.addEventListener("click", function() {
+                if (websites.value != "Select a Website...") {
+                    location.replace(`https://voidunlocked.github.io/${websites.value}`)
+                }
+            })
+        </script>
+    </body>
+</html>
